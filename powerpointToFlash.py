@@ -19,6 +19,7 @@ cardList = []
 for slide in slides:
     hasTitle = False
     hasBody = False
+    #check for title and body and save index of each
     for shape in slide.shapes:
         if shape.is_placeholder:
             if shape.placeholder_format.type == 1:
@@ -29,6 +30,7 @@ for slide in slides:
                 hasBody = True
                 bodyIndex = slide.shapes.index(shape)
 
+    #format title and bullet points            
     if hasTitle == True and hasBody == True:
         slideStr = slide.shapes[titleIndex].text + '    '
         index = 1
